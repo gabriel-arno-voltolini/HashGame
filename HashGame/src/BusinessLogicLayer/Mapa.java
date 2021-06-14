@@ -23,7 +23,7 @@ public class Mapa {
     }
 
     public int Sortear(int inicio, int fim) {
-        
+        return (int) ((Math.random() * fim) - inicio);
     }
 
     public void Limpar() {
