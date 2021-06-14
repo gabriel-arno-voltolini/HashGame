@@ -2,18 +2,18 @@ package BusinessLogicLayer;
 
 public class Mapa {
     /*
-     * mapa é definido pelo tipo primitivo char    OK
+     * mapa é definido pelo tipo primitivo char OK
      * 
      * implementa o método sortear disponível em Exemplos; OK
-     *  
+     * 
      * usar o carácter ' ' (espaço em branco) para limpar o mapa; Ok
      * 
-     * a cada jogada testar quem venceu a partida (jogador ou PC); 
-     * considerar o caso de empate no final da partida; 
+     * a cada jogada testar quem venceu a partida (jogador ou PC); considerar o caso
+     * de empate no final da partida;
      * 
-     * testar no método jogar se a linha e
-     * coluna recebida representa uma célula livre no mapa, e em caso positivo
-     * marcar nesta célula quem jogou (usar a letra).
+     * testar no método jogar se a linha e coluna recebida representa uma célula
+     * livre no mapa, e em caso positivo marcar nesta célula quem jogou (usar a
+     * letra).
      */
 
     private char[][] _mapa;
@@ -27,18 +27,22 @@ public class Mapa {
     }
 
     public void Limpar() {
-      
+        for (int i = 0; i < _mapa.length; i++) {
+            for (int j = 0; j < _mapa[0].length; j++) {
+                _mapa[i][j] = ' ';
+            }
+        }
     }
 
-    public void Desenhar(int jogada){
+    public void Desenhar(int jogada) {
 
     }
 
-    public void Jogar(int i, int c, char jogador){
+    public void Jogar(int i, int c, char jogador) {
 
     }
 
-    public boolean VerificarGanhador(char jogaodr){
+    public boolean VerificarGanhador(char jogaodr) {
 
     }
 }
