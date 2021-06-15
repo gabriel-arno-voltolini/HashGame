@@ -1,11 +1,11 @@
 package BusinessLogicLayer;
 
 public class PC {
-    private char Letra;
+    private char letra;
     private Mapa mapa;
 
     public PC(Mapa mapa) {
-        Letra = 'O';
+        letra = 'O';
         this.mapa = mapa;
     }
 
@@ -13,7 +13,7 @@ public class PC {
         int linhaSorteada = mapa.sortear(0, 2);
         int colunaSorteada = mapa.sortear(0, 2);
 
-        mapa.jogar(linhaSorteada, colunaSorteada, Letra);
-        return mapa.verificarGanhador(Letra);
+        mapa.jogar(linhaSorteada, colunaSorteada, letra);
+        return mapa.verificarGanhador(letra);
     }
 }
