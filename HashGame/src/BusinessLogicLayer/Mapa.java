@@ -58,6 +58,6 @@ public class Mapa {
     }
 
     private void DesenharCelula(char valor) {
-       System.out.print(valor + " |");
+       System.out.print(" " + valor + " |");
     }
 }
