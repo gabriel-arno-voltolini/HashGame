@@ -20,6 +20,7 @@ public class Mapa {
 
     public Mapa() {
         _mapa = new char[3][3];
+        Limpar();
     }
 
     public int Sortear(int inicio, int fim) {
@@ -41,8 +42,11 @@ public class Mapa {
         System.out.print("\n--------------------------");
     }
 
-    public void Jogar(int i, int c, char jogador) {
-
+    public void Jogar(int l, int c, char jogador) {
+        l = l - 1;
+        c = c - 1;
+        if (VerificarJogada(l, c))
+            _mapa[l][c] = jogador;
     }
 
     public boolean VerificarGanhador(char jogaodr) {
@@ -58,6 +62,16 @@ public class Mapa {
     }
 
     private void DesenharCelula(char valor) {
-       System.out.print(" " + valor + " |");
+        System.out.print(" " + valor + " |");
+    }
+
+    private boolean VerificarJogada(int l, int c) {
+        boolean jogadaValida = false;
+        if ((l <= 3 && l >= 0) && (c <= 3 && c >= 0)) {
+            if (_mapa[l][c] == ' ') {
+                jogadaValida = true;
+            }
+        }
+        return jogadaValida;
     }
 }
