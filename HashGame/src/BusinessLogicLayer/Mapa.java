@@ -35,7 +35,10 @@ public class Mapa {
     }
 
     public void Desenhar(int jogada) {
-
+        for (int i = 0; i < 3; i++) {
+            DesenharLinha(i);
+        }
+        System.out.print("\n--------------------------");
     }
 
     public void Jogar(int i, int c, char jogador) {
@@ -44,5 +47,17 @@ public class Mapa {
 
     public boolean VerificarGanhador(char jogaodr) {
 
+    }
+
+    private void DesenharLinha(int linha) {
+        System.out.print("\n-------------\n");
+        System.out.print("|");
+        for (int i = 0; i < 3; i++) {
+            DesenharCelula(_mapa[linha][i]);
+        }
+    }
+
+    private void DesenharCelula(char valor) {
+       System.out.print(valor + " |");
     }
 }
