@@ -22,14 +22,18 @@ public class Mapa {
     }
 
     public void Desenhar(int jogada) {
+        System.out.print("\n------------- .. jogada: " + jogada + "\n");
         for (int i = 0; i < 3; i++) {
-            System.out.print("\n-------------\n");
             System.out.print("|");
             for (int j = 0; j < 3; j++) {
                 System.out.print(" " + _mapa[i][j] + " |");
             }
+            if (i == 2) {
+                System.out.print("\n--------------------------\n");
+            } else {
+                System.out.print("\n-------------\n");
+            }
         }
-        System.out.print("\n--------------------------");
     }
 
     public void Jogar(int l, int c, char jogador) {
@@ -48,7 +52,7 @@ public class Mapa {
     }
 
     public boolean VerificarGanhador(char jogador) {
-        if (_mapa[0][0] == jogador && _mapa[1][1] == jogador && _mapa[2][2] == jogador // diagonal 0
+        if (_mapa[0][0] == jogador && _mapa[1][1] == jogador && _mapa[2][2] == jogador        // diagonal 0
                 || _mapa[0][2] == jogador && _mapa[1][1] == jogador && _mapa[2][0] == jogador // diagonal 2
                 || _mapa[0][0] == jogador && _mapa[0][1] == jogador && _mapa[0][2] == jogador // reta 1
                 || _mapa[1][0] == jogador && _mapa[1][1] == jogador && _mapa[1][2] == jogador // reta 2
