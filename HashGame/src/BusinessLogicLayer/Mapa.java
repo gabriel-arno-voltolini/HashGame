@@ -43,8 +43,8 @@ public class Mapa {
     }
 
     public void Jogar(int l, int c, char jogador) {
-        l = l - 1;
-        c = c - 1;
+        l--;
+        c--;
         if (VerificarJogada(l, c))
             _mapa[l][c] = jogador;
     }
