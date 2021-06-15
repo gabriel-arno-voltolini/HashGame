@@ -2,18 +2,18 @@ package BusinessLogicLayer;
 
 public class PC {
     private char Letra;
-    private Mapa Mapa;
+    private Mapa mapa;
 
     public PC(Mapa mapa) {
         Letra = 'O';
-        Mapa = mapa;
+        this.mapa = mapa;
     }
 
-    public boolean Jogar(){
-        int linhaSorteada = Mapa.Sortear(0, 2);
-        int colunaSorteada = Mapa.Sortear(0, 2);
+    public boolean jogar(){
+        int linhaSorteada = mapa.sortear(0, 2);
+        int colunaSorteada = mapa.sortear(0, 2);
         
-        Mapa.Jogar(linhaSorteada, colunaSorteada, Letra);
-        return Mapa.VerificarGanhador(Letra);
+        mapa.jogar(linhaSorteada, colunaSorteada, Letra);
+        return mapa.verificarGanhador(Letra);
     }
 }

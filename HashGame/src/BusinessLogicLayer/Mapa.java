@@ -6,14 +6,14 @@ public class Mapa {
 
     public Mapa() {
         _mapa = new char[3][3];
-        Limpar();
+        limpar();
     }
 
-    public int Sortear(int inicio, int fim) {
+    public int sortear(int inicio, int fim) {
         return (int) ((Math.random() * fim) - inicio);
     }
 
-    public void Limpar() {
+    public void limpar() {
         for (int i = 0; i < _mapa.length; i++) {
             for (int j = 0; j < _mapa[0].length; j++) {
                 _mapa[i][j] = ' ';
@@ -21,7 +21,7 @@ public class Mapa {
         }
     }
 
-    public void Desenhar(int jogada) {
+    public void desenhar(int jogada) {
         System.out.print("\n------------- .. jogada: " + jogada + "\n");
         for (int i = 0; i < 3; i++) {
             System.out.print("|");
@@ -36,7 +36,7 @@ public class Mapa {
         }
     }
 
-    public void Jogar(int l, int c, char jogador) {
+    public void jogar(int l, int c, char jogador) {
         l--;
         c--;
 
@@ -51,7 +51,7 @@ public class Mapa {
             _mapa[l][c] = jogador;
     }
 
-    public boolean VerificarGanhador(char jogador) {
+    public boolean verificarGanhador(char jogador) {
         if (_mapa[0][0] == jogador && _mapa[1][1] == jogador && _mapa[2][2] == jogador        // diagonal 0
                 || _mapa[0][2] == jogador && _mapa[1][1] == jogador && _mapa[2][0] == jogador // diagonal 2
                 || _mapa[0][0] == jogador && _mapa[0][1] == jogador && _mapa[0][2] == jogador // reta 1
