@@ -8,10 +8,10 @@ public class Mapa {
      * 
      * usar o carácter ' ' (espaço em branco) para limpar o mapa; Ok
      * 
-     * a cada jogada testar quem venceu a partida (jogador ou PC); considerar o caso
+     * a cada jogada testar quem venceu a partida (jogador ou PC); considerar o caso OK
      * de empate no final da partida;
      * 
-     * testar no método jogar se a linha e coluna recebida representa uma célula
+     * testar no método jogar se a linha e coluna recebida representa uma célula OK
      * livre no mapa, e em caso positivo marcar nesta célula quem jogou (usar a
      * letra).
      */
@@ -49,8 +49,19 @@ public class Mapa {
             _mapa[l][c] = jogador;
     }
 
-    public boolean VerificarGanhador(char jogaodr) {
-
+    public boolean VerificarGanhador(char jogador) {
+        if (_mapa[0][0] == jogador && _mapa[1][1] == jogador && _mapa[2][2] == jogador   // diagonal 0
+        ^   _mapa[2][2] == jogador && _mapa[1][1] == jogador && _mapa[2][0] == jogador   // diagonal 2
+        ^   _mapa[0][0] == jogador && _mapa[0][1] == jogador && _mapa[0][2] == jogador   // reta 1
+        ^   _mapa[1][0] == jogador && _mapa[1][1] == jogador && _mapa[1][2] == jogador   // reta 2
+        ^   _mapa[2][0] == jogador && _mapa[2][1] == jogador && _mapa[2][2] == jogador   // reta 3
+        ^   _mapa[0][0] == jogador && _mapa[1][0] == jogador && _mapa[2][0] == jogador   // reta 4
+        ^   _mapa[0][1] == jogador && _mapa[1][1] == jogador && _mapa[2][1] == jogador   // reta 5
+        ^   _mapa[0][2] == jogador && _mapa[1][2] == jogador && _mapa[2][2] == jogador   // reta 6
+        ){
+            return true;
+        }
+        return false;
     }
 
     private void DesenharLinha(int linha) {
