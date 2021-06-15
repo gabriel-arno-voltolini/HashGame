@@ -37,7 +37,11 @@ public class Mapa {
 
     public void Desenhar(int jogada) {
         for (int i = 0; i < 3; i++) {
-            DesenharLinha(i);
+            System.out.print("\n-------------\n");
+            System.out.print("|");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(" " + _mapa[i][j] + " |");
+            }
         }
         System.out.print("\n--------------------------");
     }
@@ -45,7 +49,15 @@ public class Mapa {
     public void Jogar(int l, int c, char jogador) {
         l--;
         c--;
-        if (VerificarJogada(l, c))
+
+        boolean jogadaValida = false;
+        if ((l <= 3 && l >= 0) && (c <= 3 && c >= 0)) {
+            if (_mapa[l][c] == ' ') {
+                jogadaValida = true;
+            }
+        }
+        
+        if (jogadaValida)
             _mapa[l][c] = jogador;
     }
 
@@ -62,27 +74,5 @@ public class Mapa {
             return true;
         }
         return false;
-    }
-
-    private void DesenharLinha(int linha) {
-        System.out.print("\n-------------\n");
-        System.out.print("|");
-        for (int i = 0; i < 3; i++) {
-            DesenharCelula(_mapa[linha][i]);
-        }
-    }
-
-    private void DesenharCelula(char valor) {
-        System.out.print(" " + valor + " |");
-    }
-
-    private boolean VerificarJogada(int l, int c) {
-        boolean jogadaValida = false;
-        if ((l <= 3 && l >= 0) && (c <= 3 && c >= 0)) {
-            if (_mapa[l][c] == ' ') {
-                jogadaValida = true;
-            }
-        }
-        return jogadaValida;
     }
 }
