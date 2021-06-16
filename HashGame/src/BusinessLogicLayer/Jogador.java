@@ -12,9 +12,9 @@ public class Jogador {
     }
 
     public boolean jogar(Scanner teclado) {
-        System.out.print("\nJogador ..\n" + "  linha: ");
+        System.out.print("\nJogador .." + "\n  linha: ");
         int l = teclado.nextInt();
-        System.out.print("\n  coluna: ");
+        System.out.print("  coluna: ");
         int c = teclado.nextInt();
         mapa.jogar(l, c, letra);
         boolean ganhou = mapa.verificarGanhador(letra);
@@ -23,6 +23,5 @@ public class Jogador {
             System.out.println("... Jogador GANHOU!");
         }
         return ganhou;
-
     }
 }
