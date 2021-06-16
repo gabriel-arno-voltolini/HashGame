@@ -36,7 +36,7 @@ public class Mapa {
         }
     }
 
-    public void jogar(int l, int c, char jogador) {
+    public boolean jogar(int l, int c, char jogador) {
         l--;
         c--;
 
@@ -47,8 +47,11 @@ public class Mapa {
             }
         }
 
-        if (jogadaValida)
+        if (jogadaValida) {
             mapa[l][c] = jogador;
+            return true;
+        }
+        return false;
     }
 
     public boolean verificarGanhador(char jogador) {
