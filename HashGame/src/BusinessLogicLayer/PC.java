@@ -10,10 +10,14 @@ public class PC {
     }
 
     public boolean jogar() {
-        int linhaSorteada = mapa.sortear(0, 2);
-        int colunaSorteada = mapa.sortear(0, 2);
-
-        mapa.jogar(linhaSorteada, colunaSorteada, letra);
+        int linhaSorteada;
+        int colunaSorteada;
+        boolean jogadaExecutada = false;
+        do {
+            linhaSorteada = mapa.sortear(-1, 3);
+            colunaSorteada = mapa.sortear(-1, 3);
+            jogadaExecutada = mapa.jogar(linhaSorteada, colunaSorteada, letra);
+        } while (!jogadaExecutada);
 
         boolean ganhou = mapa.verificarGanhador(letra);
         if (ganhou) {
