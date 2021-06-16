@@ -32,7 +32,7 @@ public class JogoDaVelha {
         }
 
         do {
-            jogoMapa.desenhar(0);
+            jogoMapa.desenhar(jogadas);
             jogadas++;
             jogoJogador.jogar(teclado);
             jogoPC.jogar();
