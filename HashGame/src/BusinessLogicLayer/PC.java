@@ -14,6 +14,11 @@ public class PC {
         int colunaSorteada = mapa.sortear(0, 2);
 
         mapa.jogar(linhaSorteada, colunaSorteada, letra);
-        return mapa.verificarGanhador(letra);
+
+        boolean ganhou = mapa.verificarGanhador(letra);
+        if (ganhou) {
+            System.out.println(" ... PC GANHOU!");
+        }
+        return ganhou;
     }
 }
