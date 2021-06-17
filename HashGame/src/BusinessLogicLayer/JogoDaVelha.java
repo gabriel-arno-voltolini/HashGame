@@ -34,11 +34,9 @@ public class JogoDaVelha {
         do {
             jogoMapa.desenhar(jogadas);
             jogadas++;
-            jogoJogador.jogar(teclado);
-            jogoPC.jogar();
-            jogadorGanhou = jogoMapa.verificarGanhador('X');
-            pcGanhou = jogoMapa.verificarGanhador('O');
-            if (jogadorGanhou && pcGanhou) {
+            jogadorGanhou = jogoJogador.jogar(teclado);
+            pcGanhou = jogoPC.jogar();
+            if ((jogadorGanhou && pcGanhou) ^ jogadas >= 4) {
                 System.out.println("\nVelha");
                 break;
             }
