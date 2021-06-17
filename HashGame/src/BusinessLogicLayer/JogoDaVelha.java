@@ -8,15 +8,15 @@ public class JogoDaVelha {
     Jogador jogoJogador;
 
     private JogoDaVelha() {
-        boolean jogarNovamente = true;
+        char jogarNovamente = 's';
         Scanner teclado = new Scanner(System.in);
         jogoMapa = new Mapa();
         jogoPC = new PC(jogoMapa);
         jogoJogador = new Jogador(jogoMapa);
-        while (jogarNovamente) {
+        while (jogarNovamente == 's') {
             jogar(teclado);
-            System.out.println("\nDeseja jogar novamente? \n[false] Não \n[true]  Sim\n");
-            jogarNovamente = teclado.nextBoolean();
+            System.out.println("\nDeseja jogar novamente (s/n)?");
+            jogarNovamente = teclado.next().charAt(0);
         }
         teclado.close();
     }
@@ -36,7 +36,7 @@ public class JogoDaVelha {
             jogadas++;
             jogadorGanhou = jogoJogador.jogar(teclado);
             pcGanhou = jogoPC.jogar();
-            if ((jogadorGanhou && pcGanhou) ^ jogadas >= 4) {
+            if ((jogadorGanhou && pcGanhou) ^ jogadas >= 5) {
                 System.out.println("\nVelha");
                 break;
             }
