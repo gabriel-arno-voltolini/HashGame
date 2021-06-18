@@ -23,8 +23,10 @@ public class JogoDaVelha {
 
     private void jogar(Scanner teclado) {
         int jogadas = 0;
-        boolean pcGanhou = false;
+        boolean jogadaPcExecutada = false;
+        boolean jogadaJogadorExecutada = false;
         boolean jogadorGanhou = false;
+        boolean pcGanhou = false;
 
         if (jogoMapa.sortear(-1, 2) == 1) {
             jogadas++;
@@ -34,12 +36,21 @@ public class JogoDaVelha {
         do {
             jogoMapa.desenhar(jogadas);
             jogadas++;
-            jogadorGanhou = jogoJogador.jogar(teclado);
-            pcGanhou = jogoPC.jogar();
-            if ((jogadorGanhou && pcGanhou) ^ jogadas >= 5) {
-                System.out.println("\nVelha");
+
+            jogadaJogadorExecutada = jogoJogador.jogar(teclado);
+            if (!jogadaJogadorExecutada) {
+                System.out.println("posição inválida!");
+                jogadas--;
+                continue;
+            }
+            jogadaPcExecutada = jogoPC.jogar();
+            if (!jogadaPcExecutada || (jogadorGanhou || pcGanhou) ^ jogadas >= 5) {
+                System.out.println("\n... EMPATOU!");
                 break;
             }
+            jogadorGanhou = jogoMapa.verificarGanhador('X');
+            pcGanhou = jogoMapa.verificarGanhador('O');
+
         } while (!(jogadorGanhou ^ pcGanhou));
         jogoMapa.desenhar(jogadas);
         jogoMapa.limpar();

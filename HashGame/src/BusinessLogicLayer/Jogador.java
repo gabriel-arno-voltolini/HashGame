@@ -16,12 +16,12 @@ public class Jogador {
         int l = teclado.nextInt();
         System.out.print("  coluna: ");
         int c = teclado.nextInt();
-        mapa.jogar(l, c, letra);
+        boolean jogadaExecutada = mapa.jogar(l, c, letra);
         boolean ganhou = mapa.verificarGanhador(letra);
 
         if (ganhou) {
             System.out.println("... Jogador GANHOU!");
         }
-        return ganhou;
+        return jogadaExecutada;
     }
 }
